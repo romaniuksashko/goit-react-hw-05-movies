@@ -15,7 +15,7 @@ export async function getTrendingMovies() {
 }
 
 export async function getMovieDetails(movieId) {
-  const response = axios.get(`movie/${movieId}`, {
+  const response = await axios.get(`movie/${movieId}`, {
     params: {
       api_key: API_KEY
     }
