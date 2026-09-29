@@ -23,3 +23,34 @@ export async function getMovieDetails(movieId) {
 
   return response.data
 }
+
+export async function getMovieCast(id) {
+  const response = await axios.get(`movie/${id}/credits`, {
+    params: {
+      api_key: API_KEY,
+    }
+  })
+
+  return response.data.cast
+}
+
+export async function getMovieReviews(id) {
+  const response = await axios.get(`movie/${id}/reviews`, {
+    params: {
+      api_key: API_KEY,
+    }
+  })
+  
+  return response.data.results
+}
+
+export async function searchMovie(query) {
+  const response = await axios.get(`search/movie`, {
+    params: {
+      api_key: API_KEY,
+      query: query
+    }
+  })
+
+  return response.data.results
+}
